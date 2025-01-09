@@ -1,0 +1,18 @@
+====== NT4 Domains ======
+
+===== Corrupt DHCP Database =====
+
+The DHCP server may fail to start if the database becomes corrupt. An indication is an event in the Event Log like this:
+
+  Event ID: 1014
+  Source: DhcpServer
+  Type: Error
+  Description: The Jet database returned the following Error: -1022
+  
+To fix it, perform the following steps:
+
+  - Stop the DHCP Service with ''net stop dhcpserver''
+  - Replace the DB file at ''%SYSTEMROOT%\system32\dhcp\dhcp.mdb'' with its backup from ''%SYSTEMROOT%\system32\dhcp\backup\jet\new\dhcp.mdb''
+  - Restart the DHCP server with ''net start dhcpserver''
+
+If this doesn't work, you may need to delete the entire ''%SYSTEMROOT%\system32\dhcp'' folder.

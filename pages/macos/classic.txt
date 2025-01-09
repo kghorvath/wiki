@@ -1,0 +1,34 @@
+====== Classic Mac OS ======
+
+===== Emulation =====
+
+==== Compatibility ====
+
+Most of the classic Mac OS line can be emulated a number of ways.
+
+| ^ QEMU (68k) ^ QEMU (PPC) ^ Mini vMac ^ Basilisk II ^ SheepShaver ^ CLK ^ MAME ^
+^ System 1-7.0 | | |✓| | |✓|✓|
+^ System 7.1-7.5.5 |✓|✓|✓((Compiled for Macintosh II support))|✓ |✓|✓|✓|
+^ Mac OS 7.6 | |✓ | |✓ |✓ | |✓|
+^ Mac OS 8 |✓((Up to Mac OS 8.1))|✓ | |✓((Up to Mac OS 8.1))|✓ | | |
+^ Mac OS 9 | |✓| | |✓((Up to Mac OS 9.0.4))| | |
+
+==== QEMU ====
+
+You'll need a Quadra 800 ROM file. You'll also need to create a PRAM file with the following command:
+
+''dd if=/dev/zero of=pram.img bs=256 count=1''
+
+Below is an example of the command needed to boot the System 7 installer:
+
+  qemu-system-m68k \
+  -M q800 \
+  -m 128 \
+  -bios Quadra800.rom \
+  -display gtk \
+  -g 800x600x8 \
+  -drive file=pram.img,format=raw,if=mtd \
+  -device scsi-cd,scsi-id=3,drive=cd0 \
+  -drive file=/path/to/system7.iso,format=raw,media=disk,if=none,id=cd0 \
+  -device scsi-hd,scsi-id=0,drive=hd0 \
+  -drive file=macintoshhd.img,format=raw,media=disk,if=none,id=hd0

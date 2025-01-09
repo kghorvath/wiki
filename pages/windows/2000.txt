@@ -1,0 +1,17 @@
+====== Windows 2000 ======
+
+===== Setup =====
+
+==== Setup Switches ====
+
+Windows 2000 supports the following setup switches.
+
+^ Switch ^ Description ^
+| /a | Enables accessibility options |
+| /s:<dir> | Specify location of the source installation files |
+| /u:<file> | Perform an unattended installation with a specified answer file |
+| /udf:<file> | Specify unique computer information during an unattended installation |
+| /t:<dir> | Specify a temporary drive |
+| /r:<dir> | Specify an optional folder to be installed |
+| /rx:<dir> | Specify an optional folder to be copied |
+| /e | Specify a command to be run at the end of GUI-mode setup |

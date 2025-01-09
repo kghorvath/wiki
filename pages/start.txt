@@ -1,0 +1,5 @@
+Welcome to the kghorvath.com wiki
+
+Here is an assortment of various notes and items of self-reference.
+
+<nspages -tree -r -exclude -subns -pagesInNs -h1 -textNs="Directory">

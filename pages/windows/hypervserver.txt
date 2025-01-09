@@ -1,0 +1,27 @@
+====== Hyper-V Server ======
+
+A stripped down version of Windows Server Core meant to function only as a Hyper-V server. 2019 was the last iteration released by Microsoft.
+
+===== As a Desktop =====
+
+With a little bit of coaxing, Hyper-V Server 2019 can be used as a full desktop OS.
+
+==== Enable Application Compatibility ====
+
+Run the following command to enable running regular Win32 programs:
+
+''Add-WindowsCapability -Online -Name ServerCore.AppCompatibility~~~~0.0.1.0''
+
+==== Set the Default Shell ====
+
+By default, Hyper-V Server will just load a CMD window on login. We can change that via the registry.
+
+''HKLM\Software\Microsoft\Windows NT\CurrentVersion\Winlogon\AlternateShells\AvailableShells'' is the the key that lists the priority of shells that Windows will load on logon. By default, ''cmd.exe'' is set with a priority of 3000.
+
+In order to edit the ''AvailableShells'' key, take ownership of it by right clicking it > Permissions > Advanced > and changing the owner from *TrustedInstaller* to yourself.
+
+Add a new string with a value higher than 3000 and the data with ''explorer.exe''.
+
+==== Add a Start Menu ====
+
+The built-in explorer doesn't have a start menu. Use a third party one such as [[https://github.com/Open-Shell/Open-Shell-Menu|Open-Shell.]]

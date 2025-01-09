@@ -1,0 +1,70 @@
+====== Windows 98 ======
+
+
+===== Setup =====
+
+==== Upgrade Bypass ====
+
+Windows 98 normally won't let you upgrade with an OEM or Retail copy - you'd need to use a special Upgrade version. There's a few ways we can get around this.
+
+=== Method 1: Rename SETUPX.DLL ===
+  - Navigate to C:\Windows\System on your existing 95/98 install.
+  - Rename SETUPX.DLL to something else like SETUPX.OLD.
+  - Start setup and proceed as normal.
+
+=== Method 2: Edit SETUPX.DLL ===
+  - You'll need to make a directory on your hard disk like C:\Win98 and copy the setup files there.
+  - Open SETUPX.DLL from the installation files in a hex editor.
+  - Go to the end of the file where you'll see something like 0.120.......File Copy Engine...
+  - The 120 indicates the edition type as noted below. Change it to your desired edition.
+  - Save the file and start setup from the copied directory.
+
+^ Value ^ Edition ^ Key ^ Notes ^
+| 100 | Internal | None | Microsoft use |
+| 110 | Select | Some Retail | Precursor to Volume License |
+| 111 | MSDN | MSDN | |
+| 101 | Retail | Retail | Retail CD |
+| 103 | Retail | Retail | Retail Floppy |
+| 102 | Upgrade | Upgrade | Upgrade CD |
+| 104 | Upgrade | Upgrade | Upgrade Floppy |
+| 105 | Upgrade | Upgrade | Electronic Upgrade |
+| 112 | Step-Up | Step-Up | 98FE to 98SE only |
+| 116 | Upgrade (OEM) | OEM | |
+| 115 | OEM | OEM | Full OEM Version |
+| 120 | OEM | OEM | OEM Restore disc |
+
+==== Setup Switches ====
+
+Windows 98 allows all of the [[windows:95#setup_switches|previous setup switches from Windows 95]] plus the following new ones:
+
+^ Switch ^ Description ^
+| /m | Bypasses playing the intro .wav file |
+| /na |<wrap> Bypasses the Microsoft Windows program check and can run with the options below.
+
+  * 0 = Default setting.
+  * 1 = No Windows-based program check, MS-DOS-based programs are blocked.
+  * 2 = No MS-DOS-based program check, Windows-based programs are blocked.
+  * 3 = No Windows-based or MS-DOS-based program check. </wrap>|
+| /nd | Forces setup to overwrite newer files |
+| /nf | Disables prompt to remove floppy disk |
+| /nh | Skips running HWINFO.EXE |
+| /nm | Skips minimum hardware check |
+| /nr | Skips running SCANREG.EXE |
+| /nx | Skips check for version of SETUPX running |
+| /ie | Skips Startup Disk wizard |
+
+===== QEMU/KVM Notes =====
+
+==== Pre-Installation Notes ====
+
+The CD-ROM drive sometimes doesn't show up after first reboot. In order to continue installation, be sure to copy the install files to the hard drive first. Somewhere like C:\Win98.
+
+Be sure to patch the installation files too with [[https://github.com/JHRobotics/patcher9x|Patcher9x]] before installation.
+
+==== Enabling PCI Support ====
+
+To enable PCI hardware detection in QEMU/KVM:
+  - Open Device Manager
+  - Right click Plug & Play BIOS and click Properties
+  - Select Update Driver, then Display All Drivers, then select PCI Bus.
+  - Reboot

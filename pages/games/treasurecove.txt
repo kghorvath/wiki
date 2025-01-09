@@ -1,0 +1,28 @@
+====== Treasure Cove! ======
+
+{{:games:treasure-cove_1.png?500|}}
+
+A 1992 game from The Learning Company released on DOS, MacOS, and later Windows.
+
+===== Save Data =====
+
+Treasure Cove stores player save data in a binary file called ''USER.DAT''. A partial structure of the file is as follows:
+
+^ Field ^ Data ^
+| 00:0E | Voice on/off |
+| 00:04-00:06 | New Player Hints on/off? |
+| 00:0E-00:0F | Player score |
+| 10:07 | Puffer Fish collected in level |
+| 10:08-10:09 | Light charge |
+| 10:0A-10:0B | Bubble charge |
+| 10:0C | Gems collected in level |
+| 10:0D-10:0E | Gem score |
+| 20:01 | Number of clues |
+| 1B0:07 | Current map |
+| 670:03 | Treasures collected |
+
+=== Notable Values ===
+== Current map ==
+^ Value ^ Description ^
+| 53 | Inside the big fish |
+| 54 | Shark bonus map (results in crash) |

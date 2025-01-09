@@ -1,0 +1,5 @@
+====== Carmen Sandiego: Word Detective ======
+
+===== Admin Mode =====
+
+By typing ''Carmen Admin'' as a new username, you can access admin mode where you can manage player rosters, track player progress, and create custom lessons. A similar mode is present in Carmen Sandiego: Math Detective.

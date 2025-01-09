@@ -1,0 +1,22 @@
+====== Metropolitan Atlanta Rapid Transit Authority ======
+
+===== Provisions =====
+
+The MARTA system has a number of provisions for future and never-built extensions to the system
+
+^ Name ^ Location ^ Description ^
+| Bankhead Station | Platform | The current platform at Bankhead Station can only accommodate 2-car trains, but has a provision to be expandable up to 4-cars. The current plan is to renovate the station entirely to accommodate 8-car trains - same as the rest of the system. |
+| Hapeville Branch | South of East Point Station. Just past Irene Kidd Pkwy. | Just north of the tunnel portals there is some grading to the sides of the tracks for a branch that would've extended east along Central Ave to downtown Hapeville. |
+| East Line Extension | East of Indian Creek Station. | Empty concrete trackbeds just east of the platforms at Indian Creek suggest a crossover was intended there, likely for a further eastward extension of the line. |
+| Northwest Line | Just north of Arts Center. | There are a pair of branching tunnel stubs that can be seen just north of Arts Center Station. These were intended for a short spur to 26th Street, and possibly a longer extension into Cobb County. | 
+| Proctor Creek Line | Just north of Bankhead Station. | The area around the pocket track north of Bankhead is graded for two tracks, intended for the cancelled segment of the line to Perry Homes. |
+| Tucker-North DeKalb Line | West of East Lake station. Near DeKalb Ave and Ridgecrest Rd. | There is a descending trackbed between the two active tracks that descends into a very short tunnel stub. This was intended for a branch that would have extended northeast through North Decatur past Emory University, and up towards Tucker. |
+| Summerhill Branch | Under Garnett Station. | There is a pocket track under Garnett station used for inserting trains into service at Five Points. This was possibly intended for a proposed short spur south to what was then Atlanta-Fulton County Stadium. | 
+
+===== Special Trains ======
+
+^ Unit ^ Model ^ Description ^
+| 111-112 | CQ310 | Former 2-car set converted to a work train. |
+| 501-520 | CQ310 | Single units with cabs at both ends. Were retired in 2005-2006 due to little need and issues such as third rail gapping in the yard due to their short length. Still retain the original white end livery and are stored at Avondale Yard. Unit 509 was donated to the Southeastern Railway Museum in Duluth, and 510 was donated to the Trolley Museum of New York. |
+| 1001 | Locomotive | GE 50T work locomotive |
+| 902301 | Locomotive | GE 50T work locomotive. Traction motors were rebuilt sometime from 2017-2018. |

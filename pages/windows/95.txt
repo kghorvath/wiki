@@ -1,0 +1,93 @@
+====== Windows 95 ======
+
+
+===== Upgrade Bypass =====
+
+Like Windows 95, Windows 95 has separate editions for full and upgrade installs.
+
+Windows 95 stores edition information in SETUPPP.INF in PRECOPY2.CAB under ''[ProductType]'' and upgrade information in SETUPC.INF in ''[Data]''
+
+=== Product Type ===
+^ Value ^ Edition ^ Key ^ Notes ^
+| 1 | Internal | None | Microsoft use |
+| 2 | Retail | Retail | Retail CD Full/Upgrade |
+| 3 | Upgrade | Upgrade | Upgrade Floppy. Writes Name and Company to the Floppy. |
+| 4 | Retail | Retail | Floppy |
+| 5 | Unused | N/A | Setup runs from DOS but fails at reading setup options. |
+| 6 | Unused | N/A | Setup runs from DOS/3.1. Product key has ignore option. |
+| 7 | Unused | N/A | Setup runs from DOS but fails at reading setup options. |
+| 8 | OEM | OEM | OEM Floppy. No Upgrade. |
+| 9 | OEM | OEM | OEM CD. No Upgrade. |
+
+=== Upgrade Type ===
+
+^ CCP=<value> ^ Description ^
+| 0 | No Upgrade |
+| 1 | Compliance Checking Program (Checks for Upgrade) |
+
+==== Setup Switches ====
+
+Windows 95 Setup allows passing switches from the DOS prompt.
+
+^ Switch ^ Description ^
+| /? | Prints a list of switches |
+| /c | Setup will not run SMARTdrive |
+| /d | Setup will not use existing Windows configuration (WIN.INI and SYSTEM.INI) |
+| /id | Skips check for available free space |
+| /ig | Runs setup for older Gateway/Micron computers with early BIOS versions |
+| /ih | Runs Scandisk in the foreground |
+| /im | Skips conventional memory check |
+| /iq | Skips Scandisk check but does check for cross-linked files |
+| /is | Skips Scandisk check |
+| /it | Skips check for TSR (Terminate and stay resident) programs |
+| /ir | Undocumented switch. Skips writing to the boot sector. Setup will not reboot at the end and will require a startup disk to write to the boot sector to continue installation. Intended for BIOSes with boot-sector virus protection that cannot be disabled. |
+| /IW | Skips license agreement |
+| /l | Use a Logitech mouse with setup |
+| /n | Run setup without a mouse |
+| /nr | Skips registry check |
+| /t:<dir> | Specify a location for setup temporary files |
+| -s | Use a different SETUP.INF |
+
+The ''/p'' switch can pass additional options to Detection Manager:
+
+^ Switch ^ Description ^
+| /p a | Enables safe hardware detection |
+| /p b | Prompt before mode. Prompts before each detection mode. |
+| /p c | Class detection mode. //Class detection is a mechanism 
+for finding hints for a certain class of devices. For example, adapter 
+class detection looks for hints in the config.sys and System.ini files for 
+CD-ROM drivers. If it does not find any, Setup displays a CD-ROM check box 
+asking if you have a CD-ROM drive.// |
+| /p c- | Disables class detection mode |
+| /p d=<name> | Detects listed modules only |
+| /p e | Enables setup mode detection |
+| /p f | Enables clean registry mode. Cleans the root branch of the registry before starting. |
+| /p g-<value> | Controls verbosity level of the detection progress bar. //At
+maximum level (3), it shows all the resources of the detected devices along 
+with the progress bar. This switch can help to identify which detection 
+module causes a certain problem. For example, if your mouse stops 
+responding (hangs) during detection but the system continues, there is no 
+way to determine from the log files which module hung the mouse. By turning 
+this option on and constantly moving the mouse during Setup, you can 
+determine which module is running when the mouse hangs.// |
+| /p i | Tells setup to not report the existence of a Plug-and-Play BIOS |
+| /p j | Tells setup to undo the result of ''/p i'' |
+| /p l=<value> | Sets logging level of DETLOG.TXT where ''3'' is max verbosity |
+| /p m | Enables mini-Windows mode |
+| /p n | Disables safe recovery |
+| /p o=<file> | Specifies trace output file location |
+| /p p | Enables performance logging to DETLOG.TXT |
+| /p r | Enables Safe Recovery |
+| /p s=<name> | Skips listed detection modules |
+| /p t=<value> | Specifies trace level, from 0-9 |
+| /p v | Enables verify only mode. Skips detection and only verifies existing hardware in the registry. |
+| /p x | Excludes listed resources from detection |
+
+
+===== QEMU/KVM Notes =====
+
+==== Pre-Installation Notes ====
+
+The CD-ROM drive sometimes doesn't show up after first reboot. In order to continue installation, be sure to copy the install files to the hard drive first. Somewhere like C:\Win95.
+
+Be sure to patch the installation files too with [[https://github.com/JHRobotics/patcher9x|Patcher9x]] before installation.

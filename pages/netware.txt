@@ -1,0 +1,58 @@
+====== NetWare ======
+
+===== NetWare 4.x =====
+
+==== Recommended Specs ====
+
+  * 64MB RAM
+  * 10GB IDE disk
+  * 1 CPU
+  * PCNet NIC
+  * Floppy drive
+  * CD-ROM drive
+
+==== Installation ====
+
+=== Install DOS ===
+
+Start by installing a copy of DOS on the machine. I use MS-DOS 6.22 but DR-DOS will work fine too. I have not tried FreeDOS.
+
+=== Partitioning ===
+
+We'll need to partition the drive into a DOS bootstrap partition, and a ''SYS:'' partition for Netware. Recommend a small 50-100MB partition for DOS, and the rest for NetWare.
+
+=== CD-ROM Driver ===
+
+We'll also need a DOS CD-ROM driver and MSCDEX in order to load the NetWare installation CD. These [[https://www.zx.net.nz/netware/server/411-kvm-2/sscd.ima|Samsung drivers]] work pretty well.
+
+Once the drivers are installed and loaded, run the NetWare installer at ''D:\INSTALL''
+
+=== NetWare Installation ===
+
+Select no for SMP, as we're using a single CPU. NetWare supports multiprocessor but there are issues with getting the idle driver to work for SMP in QEMU/KVM.
+
+Select the ''MPS14.PSM'' Intel platform support module.
+
+Select the ''PCNTNW.LAM'' driver for the NIC, and have it search for the device automatically.
+
+==== Idle Driver ====
+
+Load [[https://www.zx.net.nz/netware/server/411-kvm-2/idle.ima|this floppy image]] containing the NetWare Toolbox and an idle driver with ''LOAD A:\TOOLBOX.NLM''.
+
+Copy the idle driver to the SYS drive with ''COPY A:\NW4-IDLE.NLM SYS:\SYSTEM\''
+
+You can manually load the driver with ''LOAD NW4-IDLE.NLM''.
+
+To automatically load it at start, you'll need to edit ''AUTOEXEC.NCF''. Load the configuration tool with ''LOAD INSTALL'' and choose ''EDIT AUTOEXEC.NCF''. Add ''LOAD NW4-IDLE.NLM'' to the end of the file.
+
+==== LFN Support ====
+
+In order to enable long filename support, you'll need to load the ''LONG.NAM'' module at startup. Type ''LOAD INSTALL'' and select ''Edit STARTUP.NCF''. Add ''LOAD LONG.NAM'' to the end of the file.
+
+Reboot and type ''ADD NAME SPACE LONG TO VOLUME SYS'' to add long namespace support to the SYS volume.
+
+===== More Resources =====
+
+This site is a great resource for more information on running NetWare today.
+
+  * https://www.zx.net.nz/netware/server/411-kvm-2/

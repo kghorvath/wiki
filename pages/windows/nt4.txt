@@ -1,0 +1,44 @@
+====== Windows NT 4.0 ======
+
+===== Setup =====
+
+Note: Windows NT4 only supports creating up to 4GB root NTFS partitions.
+
+==== Setup Switches ====
+
+NT4 supports setup switches just like Windows 9x.
+
+^ Switch ^ Description ^
+| /b | Skip making boot diskettes |
+| /c | Skips check for free disk space |
+| /I:<filename> | Specify an alternate setup information file |
+| /f | Skip verification of copied files |
+| /l | Write errors to log file at $WINNT.LOG |
+| /ox | Create three boot diskettes |
+| /s:<path> | Specify alternate path for source installation files |
+| /t | Specify a temporary drive |
+| /u <file> | Perform an unattended installation with a specified answer file |
+| /udf | Specify unique computer information during an unattended installation |
+| /w | Undocumented switch. Allows running WINNT.EXE from Windows instead of MS-DOS |
+| /x | Skip making boot diskettes |
+
+===== Virtualization =====
+
+==== Creating the Virtual Machine ====
+
+Use the following command to create a virtual machine with the correct hardware type:
+
+''virt-install --virt-type qemu --name nt4-vm --cdrom /path/to/installer.iso --os-variant winnt4.0 --disk size=4 --memory 64 --cpu pentium --network user,model=rtl8139''
+
+
+==== Drivers ====
+
+Use the [[https://bearwindows.zcm.com.au/vbemp.htm|VBEMP]] drivers for better graphical fidelity.
+
+Use the VMware mouse drivers from an [[https://packages.vmware.com/tools/esx/3.5latest/windows/x86/VMware-tools-windows-3.5.0-988599.iso|earlier version of VMware tools]] for seamless mouse support.
+
+==== ACPI/CPU Idle ====
+
+The Softex HAL.DLL included in Service Pack 6 supports soft shutdowns, but does not support HLT instructions resulting in high CPU load during idle. There is a [[https://www.fmworld.net/support/otheros/swebnb/nb/1999win/nt4/mchal.html|Fujitsu version]] that can do both. Download HALFMV1.DLL and replace your existing HAL.DLL with it. Then, open Regedit and change ''HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon'' to ''1'' and reboot.
+
+

@@ -1,0 +1,38 @@
+====== Chicago ======
+
+{{:windows:9c8f8605382f9d8663528af6ac38411c19db242be0213d4fa82b5eb114bea6e0.png?500|}}
+
+The development codename for Windows 95
+
+===== Switch to Chicago =====
+
+Chicago had a hidden feature that allowed running Windows 3.1 in a VM and switching back and forth on the fly.
+
+Per the release notes:
+
+<code>
+Windows 3.1 running in a VM
+Chicago can run Windows 3.1 on a separate screen, if you wish. Note that the applications will have to be installed separately for Windows 3.1 and Chicago in this case. 
+
+You should only run Windows 3.1 in VGA mode (640 x 480, 16 color).  The reason for this is that many Windows 3.1 video drivers require the presence of a separate Windows 3.1 VDD.  The VGA driver does not have this requirement and so it functions correctly on the Chicago VDD.  The ability to run on other drivers depends on their requirements.  It may or may not succeed.
+
+To run Windows 3.1 under Chicago
+1. Copy the file WIN31.EXE from your \CHICAGO\SYSTEM directory to your Windows 3.1 directory (usually C:\WINDOWS).
+2. Edit the following lines in the file SYSTEM.INI in your Windows 3.1 directory (usually C:\WINDOWS\SYSTEM.INI):
+
+Change	To
+COMM.DRV=COMM.DRV	COMM.DRV=C:\CHICAGO\SYSTEM\DUALCOMM.DRV
+MOUSE.DRV=MOUSE.DRV	MOUSE.DRV=C:\CHICAGO\SYSTEM\DUALMOUS.DRV
+
+Do this only if the original lines accessed the COMM.DRV and MOUSE.DRV files (the right side of the "=" sign).
+3. Set the Command Line and Working Directory in the WIN31.PIF file to reference your Windows 3.1 directory, if it is something other than C:\WINDOWS. To access these properties:
+	a. Right click on the file C:\CHICAGO\SYSTEM\WIN31.PIF
+	b. Choose Properties from the context menu
+	c. Choose the Program Property Sheet
+	d. Make sure that the Command Line entry starts with your Windows 3.1 directory. Make sure that the Working Directory entry is your Windows 3.1 directory.  
+4. In your Chicago Main group, create a link to the file  \CHICAGO\SYSTEM\WIN31.PIF.
+
+To access Windows 3.1, double-click the icon you just created. Please do not perform Control Panel-related operations from Windows 3.1. However, you can run any application from the Windows 3.1 screen and it will run in a Windows 3.1 environment. To return to Chicago, click on the Chicago icon that will be visible on your Windows 3.1 screen.
+</code>
+
+[[https://blog.krnl386.com/index.php?post/2018/02/03/Switch-to-Windows-95|More information, including how to run it on later beta versions of Windows 95 here.]]

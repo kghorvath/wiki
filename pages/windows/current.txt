@@ -1,0 +1,13 @@
+====== Current editions of Windows (10/11) ======
+
+===== Virtualization =====
+
+==== HiDPI Auto-Resizing ====
+
+By default, Libvirt creates the QXL display adapter with 16MB of RAM which is too little for higher resolutions. Up it to 64MB by editing the VM domain XML and finding this line:
+
+''<model type='qxl' ram='65536' vram='65536' vgamem='**__16384__**' heads='1' primary='yes'/>''
+
+Change the highlighted value to ''65536''.
+
+

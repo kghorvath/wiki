@@ -1,0 +1,32 @@
+====== Mastodon ======
+===== Self-Hosting =====
+==== Garbage Collection ====
+Some various commands to clear cached data and free up storage:
+
+''tootctl media remove --days N'' Removes cached media. Default 7 days.
+
+''tootctl media remove --prune-profiles'' Remove cached avatars and headers.
+
+''tootctl media remove --remove-headers'' Remove cached headers
+
+''tootctl accounts prune'' Prune remote accounts that have never interacted with a local user
+
+''tootctl statuses remove'' Remove stale statuses from remote users
+
+''tootctl preview_cards remove'' Remove link previews
+
+''tootctl media remove-orphans'' Remove media not linked to any posts
+
+==== Slow Startup ====
+
+Docker/Podman instances can be very slow to start up. This seems to be possibly linked to the overlay2 driver and the entrypoint trying to chown contents in the public folder. More investigation needed.
+
+==== Backups ====
+
+An example of how to backup a containerized instance.
+
+''podman exec ${DB_CONTAINER} pg_dumpall -U mastodon | gzip > /temp/mastodon/postgres.sql.gz'' Dump the database to a file
+
+''tar -czf /temp/mastodon/accounts.tar.gz ${VOLUME}/pubsys/accounts'' Backup media attachments
+
+''tar -czf /temp/mastodon/${CURDATE}.tar.gz /temp/mastodon/*'' Compress everything to a file
