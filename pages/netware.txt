@@ -15,7 +15,7 @@
 
 === Install DOS ===
 
-Start by installing a copy of DOS on the machine. I use MS-DOS 6.22 but DR-DOS will work fine too. I have not tried FreeDOS.
+Start by installing a copy of DOS on the machine. I use MS-DOS 6.22 but DR-DOS will work fine too. I briefly attempted to use FreeDOS but the NetWare installer hung at the EULA screen.
 
 === Partitioning ===
 
@@ -50,6 +50,16 @@ To automatically load it at start, you'll need to edit ''AUTOEXEC.NCF''. Load th
 In order to enable long filename support, you'll need to load the ''LONG.NAM'' module at startup. Type ''LOAD INSTALL'' and select ''Edit STARTUP.NCF''. Add ''LOAD LONG.NAM'' to the end of the file.
 
 Reboot and type ''ADD NAME SPACE LONG TO VOLUME SYS'' to add long namespace support to the SYS volume.
+
+==== Adding Disks ====
+
+To add a disk, type ''LOAD INSTALL'', select ''Driver options'', and then ''Configure disk and storage device drivers'', and choose ''Discover and load additional drivers''.
+
+NetWare 4.11 by default only supports up to 8GB disks. You'll have to install Support Pack 9 first for larger disk support.
+
+==== Installing TCP/IP ====
+
+Installing TCP/IP is fairly straightforward from INSTALL.NLM. However, if you run into an error that TCP/IP is not configured mid-install, you'll need to switch consoles and run ''LOAD INETCFG''. Make sure you enable the TCP/IP protocol and bind it to your interface with ''ETHERNET_II''.
 
 ===== More Resources =====
 
