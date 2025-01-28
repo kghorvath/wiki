@@ -59,7 +59,7 @@ NetWare 4.11 by default only supports up to 8GB disks. You'll have to install Su
 
 ==== Installing TCP/IP ====
 
-Installing TCP/IP is fairly straightforward from INSTALL.NLM. However, if you run into an error that TCP/IP is not configured mid-install, you'll need to switch consoles and run ''LOAD INETCFG''. Make sure you enable the TCP/IP protocol and bind it to your interface with ''ETHERNET_II''.
+Installing TCP/IP is fairly straightforward from INSTALL.NLM. However, if you run into an error that TCP/IP is not configured mid-install, you'll need to switch consoles (in libvirt run ''qemu-monitor-command <domain> --hmp "sendkey alt-esc"'' and run ''LOAD INETCFG''. Make sure you enable the TCP/IP protocol and bind it to your interface with ''ETHERNET_II''.
 
 ===== More Resources =====
 

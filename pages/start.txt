@@ -1,5 +1,6 @@
-Welcome to the kghorvath.com wiki
+====== Welcome to the kghorvath.com wiki ======
 
-Here is an assortment of various notes and items of self-reference.
+
+Here is an assortment of various notes and items of self-reference. This isn't intended to be a full duplicate of information that can be easily found elsewhere, but rather a subset of notes and ideas that I've researched and documented here for future reference.
 
 <nspages -tree -r -exclude -subns -pagesInNs -h1 -textNs="Directory">

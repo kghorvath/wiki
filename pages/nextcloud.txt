@@ -1,0 +1,10 @@
+====== Nextcloud ======
+
+===== 413 Request Too Large =====
+
+Edit your Nextcloud client config (~/.config/Nextcloud/nextcloud.cfg) and add these lines under ''[General]'':
+
+<code>
+timeout=1200
+maxChunkSize=100000000
+</code>

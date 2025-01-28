@@ -7,5 +7,6 @@ Here's where I dump links that I want to save.
   * [[http://www.extentofthejam.com/pseudo/]]
   * [[https://oldvcr.blogspot.com/2022/07/a-brief-dive-into-power-mac-inits-and.html]]
   * [[https://raymii.org/s/blog/OpenVMS_x86_E9.2-3_fixes_CDE_and_adds_Guest_Console.html]]
-
-
+  * [[https://stable-diffusion-art.com/realistic-people/#Prompt]]
+  * [[https://github.com/s0md3v/sd-webui-roop]]
+  * [[https://it-tools.tech/]]
